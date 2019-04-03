@@ -1,0 +1,128 @@
+/*
+colors
+blue: #1B3DA1
+purple: #822C68
+dark purple: #4F0D44
+light purple: #BC9FC9
+white: #FCFBFC
+
+
+dark blue: #170b32
+light green: #22f791
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background: linear-gradient(45deg, #170b32 50%, #22f791);
+    min-height: 100vh;
+    color: #FCFBFC;
+}
+
+.wrapper {
+    padding: 0 45px;
+    margin-bottom: 25px;
+}
+
+header {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo{
+    font-size: 40px;
+}
+header .logo a {
+    color: #FFF;
+    text-decoration: none;
+}
+.nav-links{
+    list-style: none;
+}
+.nav-links li {
+    display: inline-block;
+    font-size: 20px;
+}
+.nav-links a {
+    color: #FFF;
+    text-decoration: none;
+    padding: 5px 15px;
+}
+
+.main-content {
+    min-height: 70vh;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.sidebar {
+    border: 2px solid #FCFBFC;
+    width: 20%;
+    padding: 20px;
+}
+
+.sidebar h3 {
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+.sidebar p{
+    line-height: 2;
+}
+.card-container {
+    width: 70%;
+    padding: 20px;
+    border: 3px solid #FFF;
+}
+
+.card-row {
+    margin-bottom: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.card {
+    width: 15%;
+    height: 200px;
+    /* width: calc(1/6*100% - (1 - 1/6)*15px); */
+}
+.card-inside {
+    width: 100%;
+    height: 100%;
+    box-shadow: 3px 5px 3px #888888;
+    position: relative;
+}
+.card-inside:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 90%;
+    border: 3px solid #000;
+}
+
+.card-back {
+    background: url(img/card-back.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.card:hover .card-back {
+    background: url(img/batman-1.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+footer {
+    height: 100px;
+    width: 100%;
+    background-color: #000;
+}
