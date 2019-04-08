@@ -237,8 +237,6 @@ function stanGivesHint() {
 
 function playGameSound() {
     var gameSound = new Audio('sound/retro-game-sound.flac');
-
     gameSound.volume = .2;
-
     gameSound.play();
 }
