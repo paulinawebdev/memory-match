@@ -232,13 +232,13 @@ function stanGivesHint() {
 
     setTimeout(function() {
         $(".card").removeClass("stanhint");
-    }, 1000);
+    }, 1100);
 }
 
 function playGameSound() {
     var gameSound = new Audio('sound/retro-game-sound.flac');
 
-    gameSound.volume = .5;
+    gameSound.volume = .2;
 
     gameSound.play();
 }
