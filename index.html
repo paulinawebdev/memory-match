@@ -2,94 +2,58 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/favicon.ico">
     <title>Memory Matching Game</title>
     <link rel="stylesheet" href="style.css">
+    <script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="main.js"></script>
 </head>
 <body>
     <div class="wrapper">
 
         <header>
-            <div class="logo"><a href="index.html">Logo Here</a></div>
+            <div class="logo">
+                <a href="index.html"><img src="img/logo2.png"></a>
+            </div>
+            <h2>Match the Characters!!</h2>
             <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="#">Settings</a></li>
             </ul>
         </header>
     
         <div class="main-content">
             <div class="sidebar">
                 <h3>Stats</h3>
-                <p>Times Played: </p>
-                <p>Number of tries: </p>
-                <p>Accuracy: </p>
+                <p class="games-played">Times Played: <span class="value"></span></p>
+                <p class="attempts">Number of tries: <span class="value"></span></p>
+                <p class="accuracy">Accuracy: <span class="value"></span></p>
+                <p class="matches">Match counter: <span class="value"></span></p>
+                <button id="reset-btn" class="reset-btn">RESET GAME</button>
             </div>
-            <div class="card-container">
-                <div class="card-row">
-                    <div class="card">
-                        <div class="card-inside card-back"></div>
-                    </div>
-                    <div class="card">
-                        <div class="card-inside card-back"></div>
-                    </div>
-                    <div class="card">
-                        <div class="card-inside card-back"></div>
-                    </div>
-                    <div class="card">
-                        <div class="card-inside card-back"></div>
-                    </div>
-                    <div class="card">
-                        <div class="card-inside card-back"></div>
-                    </div>
-                    <div class="card">
-                        <div class="card-inside card-back"></div>
+            <div id="game-area" class="card-container">
+                <div class="winning-popup">
+                    <div class="popup-header">Automatic Alert</div>
+                    <div class="popup-body">
+                        <img src="img/winning.gif" alt="winning gif" /> 
+                        <div class="popup-msg">
+                            <h4>You win!</h4>
+                            <p id="popup-submsg"></p>
+                        </div>
+                        <div class="popup-options">
+                            <button id="tryagain-btn">Try Again</button>
+                            <button id="close-popup">Close</button>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="card-row">
-                    <div class="card">
-                        <div class="card-inside card-back"></div>
-                    </div>
-                    <div class="card">
-                        <div class="card-inside card-back"></div>
-                    </div>
-                    <div class="card">
-                        <div class="card-inside card-back"></div>
-                    </div>
-                    <div class="card">
-                        <div class="card-inside card-back"></div>
-                    </div>
-                    <div class="card">
-                        <div class="card-inside card-back"></div>
-                    </div>
-                    <div class="card">
-                        <div class="card-inside card-back"></div>
-                    </div>
-                </div>
-
-                <div class="card-row">
-                    <div class="card">
-                        <div class="card-inside card-back"></div>
-                    </div>
-                    <div class="card">
-                        <div class="card-inside card-back"></div>
-                    </div>
-                    <div class="card">
-                        <div class="card-inside card-back"></div>
-                    </div>
-                    <div class="card">
-                        <div class="card-inside card-back"></div>
-                    </div>
-                    <div class="card">
-                        <div class="card-inside card-back"></div>
-                    </div>
-                    <div class="card">
-                        <div class="card-inside card-back"></div>
-                    </div>
-                </div>
+                <div class="stanlee-popup"></div>
             </div>
         </div>
     
     </div>
-    <footer></footer>
 </body>
 </html>

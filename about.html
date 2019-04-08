@@ -2,24 +2,73 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memory Matching Game</title>
+    <title>About The Memory Matching Game</title>
     <link rel="stylesheet" href="style.css">
+    <script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="main.js"></script>
 </head>
 <body>
     <div class="wrapper">
 
-        <header>
-            <div class="logo"><a href="index.html">Logo Here</a></div>
-            <ul class="nav-links">
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </header>
+            <header>
+                <div class="logo">
+                    <a href="index.html"><img src="img/logo2.png"></a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="#">Settings</a></li>
+                </ul>
+            </header>
     
-        <div class="main-content">
-            <h1>About This Memory Game</h1>
-            <div>
-                This Memory Game, also known as Match Match, Match Up, Memory, Pelmanism, is a card game in which all of the cards are laid face down on a surface and two cards are flipped face up over each turn.
+        <div class="about-content">
+            <div class="page-title">
+                <img src="img/info-title.gif" alt="info about this website" />
+                <img src="img/rainbow-divider.gif" alt="rainbow divider" />
+            </div>
+
+            <div class="about-container">
+                <div class="profile-img">
+                    <img src="img/profile-pic.jpg" alt="profile pic" />
+                </div>
+                <div class="profile-description">
+                    <h2></h2>
+                    <div class="profile-text">
+                        <h2>Paulina's Card Game</h2>
+                        <p>This card game is used to reinforce HTML, CSS &amp; layout concepts to adding my own flare into a classic game of concentration. The scope for this project asks the student to choose a theme for the game including:</p>
+                        <ul>
+                            <li>18 card faces</li>
+                            <li>1 card back</li>
+                        </ul> 
+                        <a class="profile-link" href="#">Visit My Profile</a> 
+                    </div>
+                </div>
+                <div class="profile-game-desc">
+                    <ul>
+                        <li>
+                            <strong>General Original Layout concept</strong>
+                            <br><br><img src="img/figma-1.PNG" alt="general layout picture" />
+                            <p>The layout concept was created using figma.com. </p>
+                        </li>
+                        <li> Stats Container is composed of
+                            <ul>
+                                <li>Games Played</li>
+                                <li>Attempts (number of times the user has clicked on cards)</li>
+                                <li>Accuracy (how many times they got it right / number of total clicks for the current game)</li>
+                                <li>Button Element with that resets the game</li>
+                            </ul>
+                        </li>
+                        <li>The Game Area is composed of
+                            <ul>
+                                <li>9 matching card elements (18 total) inside with each element having:</li>
+                                <li>Cards with class of “card” and inside, a card front &amp; back element with an img element</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     
