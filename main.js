@@ -209,12 +209,36 @@ function tryAgainClick() {
 }
 
 function popupStan() {
+
+    var stanlee_popup = $(".stanlee-popup");
+
     setInterval(function(){ 
-        var randomX = Math.random() * 100;
-        $(".stanlee-popup").css({"opacity" : 1, "left": randomX + "%" });
+        var randomX = Math.random() * 90;
+        stanlee_popup.css({"opacity" : 1, "left": randomX + "%", "height": "50px", "width": "50px"});
 
         setTimeout(function() {
-            $(".stanlee-popup").css("opacity", 0);
+            stanlee_popup.css({"opacity": 0, "height": "0", "width": "0"});
         }, 1000);
-    }, 8000);
+    }, 3000);
+
+    stanlee_popup.on("click", stanGivesHint)
+
+}
+
+function stanGivesHint() {
+    playGameSound()
+
+    $(".card").addClass("stanhint");
+
+    setTimeout(function() {
+        $(".card").removeClass("stanhint");
+    }, 1000);
+}
+
+function playGameSound() {
+    var gameSound = new Audio('sound/retro-game-sound.flac');
+
+    gameSound.volume = .5;
+
+    gameSound.play();
 }
