@@ -1,29 +1,59 @@
-/*
-colors
-blue: #1B3DA1
-purple: #822C68
-dark purple: #4F0D44
-light purple: #BC9FC9
-white: #FCFBFC
+@keyframes hover {
+    0%   {margin-top: 0}
+    50%  {margin-top: -50px}
+    100% {margin-top: 0}
+}
 
+@keyframes flyby {
+    0%   {left: -100px}
+    25%   {left: 35%}
+    50%  {left: 80%}
+    100% {left: 100%}
+}
 
-dark blue: #170b32
-light green: #22f791
-*/
+@keyframes animateBorder {
+    0% {border-color: #22f791}
+    25% {border-color: blue}
+    50% {border-color: red}
+    100% {border-color: #22f791}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
 
 * {
-    margin: 0;
-    padding: 0;
+    font-family: Comic Sans MS,Arial,Helvetica,sans-serif
 }
 
 body{
-    background: linear-gradient(45deg, #170b32 50%, #22f791);
+    background-color: #001743;
+    background: url("img/star-bg.gif");
+    background-repeat: repeat;
     min-height: 100vh;
     color: #FCFBFC;
+    overflow-x: hidden;
+}
+body:before{
+    content: "";
+    background: url(img/spaceship2.gif);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 100px;
+    height: 100px;
+    display: block;
+    position: absolute;
+    top: 155px;
+    left: -100px;
+    animation-name: flyby;
+    animation-delay: 2s;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
 }
 
 .wrapper {
-    padding: 0 45px;
+    padding: 0 35px;
     margin-bottom: 25px;
 }
 
@@ -35,94 +65,341 @@ header {
     align-items: center;
 }
 
-header .logo{
-    font-size: 40px;
+header h2 {
+    text-shadow: 3px 3px #ff0000;
 }
-header .logo a {
-    color: #FFF;
-    text-decoration: none;
+
+header .logo img {
+    height: 60px;
 }
+
 .nav-links{
     list-style: none;
 }
 .nav-links li {
     display: inline-block;
-    font-size: 20px;
+    font-size: 18px;
 }
 .nav-links a {
     color: #FFF;
+    margin: 10px;
     text-decoration: none;
-    padding: 5px 15px;
+    border-bottom: 1px solid #FFF;
+}
+
+.page-title {
+    width: 100%;
+    margin-bottom:1rem;
+}
+.page-title img {
+    display: block;
+    position: relative;
+    z-index:2;
+    margin: auto;
 }
 
 .main-content {
-    min-height: 70vh;
+    min-height: 80vh;
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
 .sidebar {
-    border: 2px solid #FCFBFC;
-    width: 20%;
-    padding: 20px;
+    width: 13%;
+    padding: 10px;
+    position: relative;
+    background-color: rgba(215, 003, 005, 0.5);
+    text-align: center;
 }
 
 .sidebar h3 {
     font-size: 25px;
     margin-bottom: 15px;
+    text-decoration: underline;
 }
 .sidebar p{
     line-height: 2;
+    margin-bottom: 1rem;
+}
+.sidebar p span {
+    display: block;
+}
+.sidebar .reset-btn {
+    background-color: #22f791;
+    border: 2px solid #FFF;
+    padding: 10px 25px;
+    display: block;
+    font-weight: bold;
+    position: relative;
+    left: 50%;
+    top: 20px;
+    transform: translateX(-50%);
+}
+.sidebar .reset-btn:hover {
+    cursor: pointer;
+    opacity: .7;
+}
+.sidebar:after {
+    content: "";
+    background: url(img/bgFury.gif);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 150px;
+    height: 150px;
+    display: block;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 .card-container {
-    width: 70%;
-    padding: 20px;
-    border: 3px solid #FFF;
+    width: 80%;
+    padding: 35px 0 55px;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(102, 100, 116, .5);
+    position: relative;
 }
 
-.card-row {
-    margin-bottom: 15px;
+.card-container:before {
+    content: "";
+    background: url("img/captain-marvel-hover.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 180px;
+    height: 255px;
+    z-index: 1;
+    left: 0;
+    top: 40%;
+    transform: translate(-50%, -50%);
+    animation-name: hover;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+}
+.card-container:after {
+    content: "";
+    background: url(img/superman-hover.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 175px;
+    height: 225px;
+    z-index: 1;
+    top: 70%;
+    right: -65px;
+    animation-name: hover;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+}
+.card-col {
+    margin: 10px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.card-col:nth-child(even){
+    transform: translateY(30px);
+}
+
+.card, .card-inside, .card-front, .card-back {
+    border-radius: 10px;
 }
 
 .card {
-    width: 15%;
+    width: 140px;
     height: 200px;
-    /* width: calc(1/6*100% - (1 - 1/6)*15px); */
+    margin-bottom: 30px;
+    cursor: pointer;
 }
+
 .card-inside {
+    position: relative;
     width: 100%;
     height: 100%;
-    box-shadow: 3px 5px 3px #888888;
-    position: relative;
+    text-align: center;
+    transition: transform 0.8s ease-out, width .5s ease-in;
+    transform-style: preserve-3d;
 }
+
 .card-inside:before {
     content: "";
     position: absolute;
+    width: 98%;
+    height: 98%;
+    border: 5px solid #000;
+    border-radius: 10px;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.card-inside.match:before {
+    border: 5px solid #22f791;
+}
+
+.card-inside.winning:before {
+    animation: animateBorder 3s infinite;
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    box-shadow: 5px 5px 5px rgba(0,0,0,.8);
+}
+
+
+.card.reveal .card-inside{
+    transform: rotateY(180deg);
+    cursor: default;
+}
+
+.card.stanhint .card-inside{
+    transform: rotateY(170deg);
+}
+
+.card-front {
+    transform: rotateY(180deg);
+}
+
+.card-front.no-shadow {
+    box-shadow: none;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.winning-popup {
+    visibility: hidden;
+    width: 400px;
+    height: 185px;
+    color: #fff;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 2;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 90%;
-    height: 90%;
-    border: 3px solid #000;
 }
 
-.card-back {
-    background: url(img/card-back.jpg);
-    background-size: cover;
-    background-position: center;
-}
-.card:hover .card-back {
-    background: url(img/batman-1.jpg);
-    background-size: cover;
-    background-position: center;
+.winning-popup .popup-header {
+    background-image: linear-gradient(to right,orange, red,blue); 
+    border-top: 2px solid #FFF;
+    border-left: 2px solid #FFF;
+    border-right: 2px solid #314162;
+    padding: 3px;
 }
 
-footer {
-    height: 100px;
+.winning-popup .popup-body {
+    border-left: 2px solid #FFF;
+    border-right: 2px solid #314162;
+    border-bottom: 2px solid #314162;
+    background-color: #c4e6f0;
+    color: #000;
+    height: 100%;
+}
+
+.winning-popup img{
+    width: 135px;
+    float: left;
+}
+.winning-popup .popup-msg {
+    width: 250px;
+    float: left;
+}
+
+.winning-popup button {
+    border-top: 2px solid #FFF;
+    border-left: 2px solid #FFF;
+    border-right: 2px solid #314162;
+    border-bottom: 2px solid #314162;
+}
+.winning-popup button:first-letter {
+    text-decoration: underline;
+}
+
+.winning-popup.show {
+    visibility: visible;
+    animation: fadeIn .5s;
+}
+
+.stanlee-popup {
+    opacity: 0;
+    position: absolute;
+    bottom: 0;
+    background: url("img/stanlee.png");
+    background-repeat:no-repeat;
+    background-size: 100%;
+    height: 0;
+    width: 0;
+    transition: opacity .5s;
+}
+
+
+.about-container {
+    background-image: linear-gradient(red,blue); 
+    border: 1px solid #FFF;
+    display: block;
     width: 100%;
-    background-color: #000;
+    max-width: 800px;
+    margin: auto;
+    font-size: 0;
+    padding: 10px;
+}
+
+.about-container > * {
+    font-size: 1rem;
+}
+
+.profile-img {
+    font-size: 0;
+    display: inline-block;
+    width: 25%;
+}
+.profile-img img {
+    width:100%;
+}
+.profile-description {
+    width: 75%;
+    display:inline-block;
+    vertical-align: top;
+}
+
+.profile-text {
+    padding: 15px;
+}
+
+.profile-text h2 {
+    text-shadow: 4px 4px blue;
+}
+
+.profile-text ul {
+    padding-left: 15px;
+}
+
+.profile-game-desc img {
+    max-width: 300px;
+    width: 100%;
+}
+
+.profile-link {
+    text-shadow: 2px 2px #ff0000;
+}
+
+@media screen and (max-width: 1300px) {
+    .wrapper {
+        padding: 0 5px;
+    }
+    .card {
+        width: 100px;
+        height: 143px;
+    }
 }
