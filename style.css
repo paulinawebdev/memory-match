@@ -58,7 +58,7 @@ body:before{
 }
 
 header {
-    height: 100px;
+    height: 70px;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -67,10 +67,11 @@ header {
 
 header h2 {
     text-shadow: 3px 3px #ff0000;
+    text-align: center;
 }
 
 header .logo img {
-    height: 60px;
+    height: 50px;
 }
 
 .nav-links{
@@ -99,8 +100,9 @@ header .logo img {
 }
 
 .main-content {
-    min-height: 80vh;
+    min-height: 85vh;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
 }
 
@@ -110,6 +112,7 @@ header .logo img {
     position: relative;
     background-color: rgba(215, 003, 005, 0.5);
     text-align: center;
+    border: 2px solid;
 }
 
 .sidebar h3 {
@@ -144,8 +147,8 @@ header .logo img {
     background: url(img/bgFury.gif);
     background-repeat: no-repeat;
     background-size: 100%;
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
     display: block;
     position: absolute;
     bottom: -5px;
@@ -153,12 +156,13 @@ header .logo img {
     transform: translateX(-50%);
 }
 .card-container {
-    width: 80%;
-    padding: 35px 0 55px;
+    width: 83%;
+    padding: 25px 0 45px;
     display: flex;
     justify-content: center;
     background-color: rgba(102, 100, 116, .5);
     position: relative;
+    border: 2px solid #CCC;
 }
 
 .card-container:before {
@@ -199,9 +203,10 @@ header .logo img {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    width: 14%;
 }
 
-.card-col:nth-child(even){
+.card-col:nth-of-type(even){
     transform: translateY(30px);
 }
 
@@ -210,8 +215,8 @@ header .logo img {
 }
 
 .card {
-    width: 140px;
-    height: 200px;
+    width: 125px;
+    height: 180px;
     margin-bottom: 30px;
     cursor: pointer;
 }
@@ -277,9 +282,10 @@ header .logo img {
     border-radius: 10px;
 }
 
-.winning-popup {
+.popup {
     visibility: hidden;
-    width: 400px;
+    max-width: 400px;
+    width: 95%;
     height: 185px;
     color: #fff;
     padding: 8px 0;
@@ -290,7 +296,7 @@ header .logo img {
     transform: translate(-50%, -50%);
 }
 
-.winning-popup .popup-header {
+.popup .popup-header {
     background-image: linear-gradient(to right,orange, red,blue); 
     border-top: 2px solid #FFF;
     border-left: 2px solid #FFF;
@@ -298,7 +304,7 @@ header .logo img {
     padding: 3px;
 }
 
-.winning-popup .popup-body {
+.popup .popup-body {
     border-left: 2px solid #FFF;
     border-right: 2px solid #314162;
     border-bottom: 2px solid #314162;
@@ -307,26 +313,26 @@ header .logo img {
     height: 100%;
 }
 
-.winning-popup img{
+.popup img{
     width: 135px;
     float: left;
 }
-.winning-popup .popup-msg {
+.popup .popup-msg {
     width: 250px;
     float: left;
 }
 
-.winning-popup button {
+.popup button {
     border-top: 2px solid #FFF;
     border-left: 2px solid #FFF;
     border-right: 2px solid #314162;
     border-bottom: 2px solid #314162;
 }
-.winning-popup button:first-letter {
+.popup button:first-letter {
     text-decoration: underline;
 }
 
-.winning-popup.show {
+.popup.show {
     visibility: visible;
     animation: fadeIn .5s;
 }
@@ -398,8 +404,73 @@ header .logo img {
     .wrapper {
         padding: 0 5px;
     }
+    .card-container:before, .card-container:after {
+        width: 130px;
+        height: 165px;
+    }
     .card {
         width: 100px;
         height: 143px;
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .sidebar {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: .25rem;
+    }
+    .sidebar h3 {
+        display: none;
+    }
+    .sidebar p {
+        margin: 5px;
+    }
+    .sidebar:after {
+        width: 70px;
+        height: 70px;
+        right: -10px;
+        left: initial;
+        transform: none;
+    }
+    .sidebar .reset-btn {
+        left: initial;
+        top: initial;
+        transform: none;
+        max-height: 50px;
+    }
+    .card-container {
+        width: 100%;
+    }
+    .card-container:before, .card-container:after {
+        display:none;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    header .logo img {
+        height: 40px;
+    }
+    header h2 {
+        font-size: 1rem;
+    }
+    .sidebar, .card-container{
+        display: none;
+    }
+    .mobile-warning.popup {
+        visibility: visible;
+        animation: fadeIn .5s;
+    }
+    .popup {
+        height: 165px;
+    }
+    .popup img {
+        width: 95px;
+    }
+    .popup-options button {
+        margin: 5px;
     }
 }
