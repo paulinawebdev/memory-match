@@ -22,7 +22,6 @@
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="#">Settings</a></li>
             </ul>
         </header>
     
@@ -36,7 +35,7 @@
                 <button id="reset-btn" class="reset-btn">RESET GAME</button>
             </div>
             <div id="game-area" class="card-container">
-                <div class="winning-popup">
+                <div class="winning-popup popup">
                     <div class="popup-header">Automatic Alert</div>
                     <div class="popup-body">
                         <img src="img/winning.gif" alt="winning gif" /> 
@@ -53,7 +52,19 @@
                 <div class="stanlee-popup"></div>
             </div>
         </div>
-    
+        <div class="mobile-warning popup">
+            <div class="popup-header">Automatic Alert</div>
+            <div class="popup-body">
+                <img src="img/winning.gif" alt="winning gif" /> 
+                <div class="popup-msg">
+                    <h4>Not compatible with mobile.. yet</h4>
+                </div>
+                <div class="popup-options">
+                    <button id="tryagain-btn" onClick="document.location.reload(true)">Try Again</button>
+                    <button id="close-popup">Close</button>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>

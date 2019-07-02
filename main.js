@@ -1,10 +1,7 @@
 $(document).ready(initializeApp);
 
 function initializeApp() {
-
-    populateCards(imgArrayMain);
-
-    displayStats();
+    populateCards();
 
     $(".card").on("click", function() {
         var card_click = $(this);
@@ -16,17 +13,16 @@ function initializeApp() {
     });
 
     $("#close-popup").on("click", function() {
-        $(".winning-popup").removeClass("show");
+        $(".popup").removeClass("show");
     });
 
     $("#tryagain-btn").on("click", function() {
         tryAgainClick();
     });
 
-    popupStan()
-    
+    popupStan();
+    displayStats();
 }
-
 
 var imgArrayMain = ["batman-1.jpg", "batman-2.jpg","captainamerica-1.jpg", "captainamerica-2.jpg", "flash-1.jpg", "flash-2.jpg", "harleyquinn-1.jpg", "harleyquinn-2.jpg", "hulk-1.jpg", "hulk-2.jpg", "ironman-1.jpg", "ironman-2.jpg", "spiderman-1.jpg", "spiderman-2.jpg", "superman-1.jpg", "superman-2.jpg", "venom-1.jpg", "venom-2.jpg"];
 var imgArrayPop = ["batman-1.jpg", "batman-2.jpg","captainamerica-1.jpg", "captainamerica-2.jpg", "flash-1.jpg", "flash-2.jpg", "harleyquinn-1.jpg", "harleyquinn-2.jpg", "hulk-1.jpg", "hulk-2.jpg", "ironman-1.jpg", "ironman-2.jpg", "spiderman-1.jpg", "spiderman-2.jpg", "superman-1.jpg", "superman-2.jpg", "venom-1.jpg", "venom-2.jpg"];
@@ -48,9 +44,8 @@ var accuracy_val;
 var games_val;
 
 
-function populateCards(imgArray) {
-
-    var card_max_cols = 6; // should be divisible by 18 for easy mode
+function populateCards() {
+    var card_max_cols = 6; // should be divisible by 18
     var game_area = $("#game-area");
 
     for (var col_count = 0; col_count < card_max_cols; col_count++) {
@@ -83,7 +78,6 @@ function populateCards(imgArray) {
 }
 
 function cardClicked(card_click) {
-
     var card_img = card_click.find("img");
     var card_src = $(card_img[0]).attr("src");
     
@@ -130,27 +124,18 @@ function cardClicked(card_click) {
             second_card_clicked = null;
 
             if (matches === total_possible_matches) {
-
                 setTimeout(function(){
                     winningDisplay()
                 }, 500)
-
-            } //else {
-                //return something here
-            //}
-
+            }
             return;
-
         } else {
-            
             setTimeout(function(){
-                
                 $(first_card_clicked).removeClass("reveal");
                 $(second_card_clicked).removeClass("reveal");
 
                 first_card_clicked = null;
                 second_card_clicked = null;
-
             }, 1000)
         }
 
@@ -183,28 +168,36 @@ function displayStats() {
 
 function resetStats() {
     games_played++;
-    games_val.text(games_played);
 
     accuracy = 0;
     matches = 0;
     attempts = 0;
 
-    displayStats()
-    resetCards()
-}
+    $("#reset-btn").off();
 
-function resetCards() {
+    $(".stanlee-popup").remove();
     $(".card").removeClass("reveal");
     $(".card-inside").removeClass("match winning");
+
+    imgArrayMain = ["batman-1.jpg", "batman-2.jpg","captainamerica-1.jpg", "captainamerica-2.jpg", "flash-1.jpg", "flash-2.jpg", "harleyquinn-1.jpg", "harleyquinn-2.jpg", "hulk-1.jpg", "hulk-2.jpg", "ironman-1.jpg", "ironman-2.jpg", "spiderman-1.jpg", "spiderman-2.jpg", "superman-1.jpg", "superman-2.jpg", "venom-1.jpg", "venom-2.jpg"];
+    imgArrayPop = ["batman-1.jpg", "batman-2.jpg","captainamerica-1.jpg", "captainamerica-2.jpg", "flash-1.jpg", "flash-2.jpg", "harleyquinn-1.jpg", "harleyquinn-2.jpg", "hulk-1.jpg", "hulk-2.jpg", "ironman-1.jpg", "ironman-2.jpg", "spiderman-1.jpg", "spiderman-2.jpg", "superman-1.jpg", "superman-2.jpg", "venom-1.jpg", "venom-2.jpg"];
+
+    first_card_src = null;
+    second_card_src = null;
+
+    $(".card-col").remove();
+    initializeApp()
+
 }
+
 
 function winningDisplay() {
     $(".card-inside").addClass("winning");
-    $(".winning-popup").addClass("show");
+    $(".winning-popup.popup").addClass("show");
 }
 
 function tryAgainClick() {
-    $(".winning-popup").removeClass("show");
+    $(".winning-popup.popup").removeClass("show");
     resetStats()
 }
 
@@ -221,7 +214,7 @@ function popupStan() {
         }, 1000);
     }, 3000);
 
-    stanlee_popup.on("click", stanGivesHint)
+    stanlee_popup.on("click", stanGivesHint);
 
 }
 
