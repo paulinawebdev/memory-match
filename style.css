@@ -430,8 +430,8 @@ header .logo img {
         margin: 5px;
     }
     .sidebar:after {
-        width: 70px;
-        height: 70px;
+        width: 45px;
+        height: 45px;
         right: -10px;
         left: initial;
         transform: none;
