@@ -8,4 +8,4 @@ displayed a message that they have won the game. As the user clicks through the 
 accuracy of their choices.
 
 ## Technology used:
-* HTML, CSS, JAVASCRIPT, JQUERY
+> HTML, CSS, JAVASCRIPT, JQUERY
