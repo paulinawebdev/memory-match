@@ -29,14 +29,13 @@
 
 body{
     background-color: #001743;
-    background: url("img/star-bg.gif");
+    background: url(img/star-bg.gif);
     background-repeat: repeat;
-    min-height: 100vh;
+    min-height: 98vh;
     color: #FCFBFC;
-    overflow-x: hidden;
+    margin: 0;
 }
-body:before{
-    content: "";
+.flying-plane {
     background: url(img/spaceship2.gif);
     background-repeat: no-repeat;
     background-size: 100%;
@@ -55,6 +54,8 @@ body:before{
 .wrapper {
     padding: 0 35px;
     margin-bottom: 25px;
+    position: relative;
+    overflow: hidden;
 }
 
 header {
@@ -97,10 +98,11 @@ header .logo img {
     position: relative;
     z-index:2;
     margin: auto;
+    max-width: 100%;
 }
 
 .main-content {
-    min-height: 85vh;
+    min-height: 55vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -354,7 +356,7 @@ header .logo img {
     background-image: linear-gradient(red,blue); 
     border: 1px solid #FFF;
     display: block;
-    width: 100%;
+    width: 90%;
     max-width: 800px;
     margin: auto;
     font-size: 0;
@@ -366,9 +368,9 @@ header .logo img {
 }
 
 .profile-img {
-    font-size: 0;
     display: inline-block;
     width: 25%;
+    text-align: center;
 }
 .profile-img img {
     width:100%;
@@ -397,7 +399,7 @@ header .logo img {
 }
 
 .profile-link {
-    text-shadow: 2px 2px #ff0000;
+    color: #FFF;
 }
 
 @media screen and (max-width: 1300px) {
@@ -455,7 +457,7 @@ header .logo img {
         height: 40px;
     }
     header h2 {
-        font-size: 1rem;
+        display: none;
     }
     .sidebar, .card-container{
         display: none;
