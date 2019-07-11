@@ -43,6 +43,8 @@ var matches_val;
 var accuracy_val;
 var games_val;
 
+var stanInterval;
+
 
 function populateCards() {
     var card_max_cols = 6; // should be divisible by 18
@@ -175,9 +177,11 @@ function resetStats() {
 
     $("#reset-btn").off();
 
-    $(".stanlee-popup").remove();
+    clearInterval(stanInterval);
     $(".card").removeClass("reveal");
     $(".card-inside").removeClass("match winning");
+
+    first_card_clicked = null;
 
     imgArrayMain = ["batman-1.jpg", "batman-2.jpg","captainamerica-1.jpg", "captainamerica-2.jpg", "flash-1.jpg", "flash-2.jpg", "harleyquinn-1.jpg", "harleyquinn-2.jpg", "hulk-1.jpg", "hulk-2.jpg", "ironman-1.jpg", "ironman-2.jpg", "spiderman-1.jpg", "spiderman-2.jpg", "superman-1.jpg", "superman-2.jpg", "venom-1.jpg", "venom-2.jpg"];
     imgArrayPop = ["batman-1.jpg", "batman-2.jpg","captainamerica-1.jpg", "captainamerica-2.jpg", "flash-1.jpg", "flash-2.jpg", "harleyquinn-1.jpg", "harleyquinn-2.jpg", "hulk-1.jpg", "hulk-2.jpg", "ironman-1.jpg", "ironman-2.jpg", "spiderman-1.jpg", "spiderman-2.jpg", "superman-1.jpg", "superman-2.jpg", "venom-1.jpg", "venom-2.jpg"];
@@ -205,7 +209,7 @@ function popupStan() {
 
     var stanlee_popup = $(".stanlee-popup");
 
-    setInterval(function(){ 
+    stanInterval = setInterval(function(){ 
         var randomX = Math.random() * 90;
         stanlee_popup.css({"opacity" : 1, "left": randomX + "%", "height": "50px", "width": "50px"});
 
