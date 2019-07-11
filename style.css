@@ -466,6 +466,10 @@ header .logo img {
         visibility: visible;
         animation: fadeIn .5s;
     }
+    .mobile-warning.popup .popup-body {
+        display: flex;
+        align-items: center;
+    }
     .popup {
         height: 165px;
     }
